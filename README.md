@@ -1,34 +1,66 @@
-# 如何获取当前显示的控制器
-我观察到点击mac版微信启动页面中的登录按钮时，手机端的微信会present出一个确认页面。细致研究时会发现如果手机端当前停留的页面是被present出来的话，此时是不会弹出确认页面的。
+#### Features
 
-今天我们讨论一下，如何获取当前显示的控制器。
+gain the current visible controller with single line of code.
 
-示例如下：
+#### A picture is better than thousand words
 
 ![示例](topController.gif)
 
-核心代码如下：
+#### How To Get Started
 
-```objective-c
-+ (UIViewController *)topController {
-    UIViewController *topC = [self topViewController:[[UIApplication sharedApplication].keyWindow rootViewController]];
-    while (topC.presentedViewController) {
-        topC = [self topViewController:topC.presentedViewController];
-    }
-    return topC;
-}
+- download TopController and try out the program example.
+- check out the article [top Controller](http://www.jianshu.com/p/a8f3fb7244f8)
 
-+ (UIViewController *)topViewController:(UIViewController *)controller {
-    if ([controller isKindOfClass:[UINavigationController class]]) {
-        return [self topViewController:[(UINavigationController *)controller topViewController]];
-    } else if ([controller isKindOfClass:[UITabBarController class]]) {
-        return [self topViewController:[(UITabBarController *)controller selectedViewController]];
-    } else {
-        return controller;
-    }
-}
+#### Communication
+
+- if you **find a bug** , and can provide steps to reliably reproduce it, open an issue.
+- if you **have a feature request**, open an issue.
+- if you **want to contribte**, submit a pull request.
+
+#### Installation
+
+it supports multiple methods for installing the library in a project.
+
+###### installation with CocoaPods
+
+- Podfile
+
+to integrate TopController into your Xcode project using CocoaPods, specify it in you `Podfile`:
+
+```
+target 'TargetName' do
+pod 'TopController'
+end
+```
+
+Then, run the following command:
+
+```
+$ pod install
 ```
 
 
 
-大体思路是获取到window的rootViewController 之后开始递归调用(UIViewController *)topViewController:(UIViewController *)controller这个方法，直到传入的控制不再是容器类控制器后返回。返回之后会检查处理present 这种情况。
+###### install manually
+
+just drag the `topController` folder into you project.
+
+
+
+#### Requirements
+
+| TopController Version | Minimum iOS Target | Notes |
+| :-------------------: | :----------------: | :---: |
+|         0.0.1         |       iOS 7        |       |
+
+
+
+#### Usage 
+
+just`#import "TopController.h"`
+
+and then call`[TopController topController];` to gain the visible controller;
+
+#### Licenses
+
+TopController is released under the MIT license. See LICENSE for details.
